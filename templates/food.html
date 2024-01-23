@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Food</title>
+</head>
+<body>
+<ul>
+{% for i in menu %}
+    <li>{{ i }}
+   {% endfor %}
+</ul>
+<ul>
+{% for i in new_food %}
+    <li>Name food:{{ i.name }} Price: {{ i.price}}
+    Category:{{ i.category }}
+    Data izgotovlenie:{{ i.intro }}
+    Iformasiya:{{ i.info }}</li>
+
+   {% endfor %}
+</ul>
+</body>
+</html>

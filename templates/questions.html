@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>questions</title>
+</head>
+<body>
+<ul>
+{% for i in menu %}
+    <li>{{ m }}
+    <h2><a href="{% url i.url %}"> {{ i.name }} </a></h2></li>
+   {% endfor %}
+</ul>
+
+</body>
+</html>

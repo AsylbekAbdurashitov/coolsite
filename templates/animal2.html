@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Animal</title>
+</head>
+<body>
+{% for i in new_animal %}
+<h2>{{ i.id }}</h2>
+<h2>Имя животного: <a href="{{ i.id }}"> {{ i.name }} </a></h2>
+<h2>Возраст: {{ i.age }} </h2>
+<h2>Порода: {{ i.breed }} </h2>
+<h2><a href="/products/delete-animal-by-name/{{ i.name }}/">Удалить</a></h2>
+<h2><a href="/products/edit-animal/{{ i.id }}">Izmenit</a> </h2>
+    <hr>
+{% endfor %}
+<h1>Creat Animal</h1>
+<form action="/products/add-animal/" method="POST">
+    {% csrf_token %} {{ form.as_p }}
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name"><br>
+     <label for="age">Age:</label>
+    <input type="number" id="age" name="age"><br>
+     <label for="breed">Breed:</label>
+    <input type="text" id="breed" name="breed"><br>
+    <input type="submit" value="Dobavit"><br>
+
+    <hr>
+</form>
+</body>
+</html>
+
+
+
+

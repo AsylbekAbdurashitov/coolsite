@@ -1,0 +1,36 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Women</title>
+</head>
+<body>
+<ul>
+{% for i in menu %}
+    <li><a href="{% url i.url %}">{{ i.name }}</a></li>
+{% endfor %}
+    <hr>
+{% for i in category %}
+    <li>{{ i.name }}</li>
+{% endfor %}
+
+{% for i in women %}
+    {% if i.image %}
+    <img src="{{i.image.url}}" alt="" height="300px" width="300px">
+    {% endif %}
+    <h2>{{ i.get_full_name }}</h2>
+     <a href="{% url 'detail-women' i.slug %}">Читать пост</a>
+    <form action="{% url 'delete-women' i.slug %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Удалить</button>
+    </form>
+
+    <hr>
+    {% endfor %}
+</ul>
+</body>
+</html>
